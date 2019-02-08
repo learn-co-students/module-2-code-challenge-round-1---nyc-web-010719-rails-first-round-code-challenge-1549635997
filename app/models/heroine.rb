@@ -9,5 +9,4 @@ class Heroine < ApplicationRecord
   def power_name
     self.power ? self.power.name : nil
   end
-
 end

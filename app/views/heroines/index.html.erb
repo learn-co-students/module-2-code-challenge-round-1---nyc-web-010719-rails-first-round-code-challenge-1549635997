@@ -7,6 +7,7 @@
 <% end %>
 
 <ul>
+  <% if @heroines%>
   <% @heroines.each do |heroine| %>
     <li>
       <%= link_to heroine.super_name, heroine_path(heroine) %>
@@ -14,5 +15,7 @@
     <br>
   <% end %>
 </ul>
+    <%=link_to "Reload All Heroines", heroines_path  %>
+    <% end %>
 
 <h4><%= link_to "Create New", new_heroine_path %></h4>

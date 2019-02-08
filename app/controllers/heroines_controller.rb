@@ -1,28 +1,16 @@
 class HeroinesController < ApplicationController
 
-###I realize this is a super messy way of doing the search function..but it works, can/should definitely refactor in some way. Also ideally would have an error message when no results found.
+### Could not get search to work exactly how I wanted.. wanted to give "no results found" message to user if @heroines was empty but couldn't get it to work in time. Because of this I added a "reload all heroines" button in index.erb so you could reset searches that return 0 Heroines.
 
   def index
-    if params[:option] == "flight"
+    if params[:option]
       @heroines = Heroine.all.select do |heroine|
-        heroine.power_name == "flight"
-      end
-    elsif params[:option] == "super strength"
-      @heroines = Heroine.all.select do |heroine|
-        heroine.power_name == "super strength"
-      end
-    elsif params[:option] == "super human senses"
-      @heroines = Heroine.all.select do |heroine|
-        heroine.power_name == "super human senses"
-      end
-    elsif params[:option] == "elasticity"
-      @heroines = Heroine.all.select do |heroine|
-        heroine.power_name == "elasticity"
-      end
+      heroine.power_name == params[:option]
+    end
     else
       @heroines = Heroine.all
+    end
   end
-end
 
   def new
     @heroine = Heroine.new(params[:id])
