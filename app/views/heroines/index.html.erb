@@ -3,8 +3,23 @@
 <ul>
   <% @heroines.each do |heroine| %>
     <li>
-      <%= heroine.super_name %>
+      <%= link_to heroine.super_name, heroine %>
     </li>
     <br>
+  <% end %>
+
+
+  <%= form_tag("/search", method: "get") do %>
+    <%= label_tag(:q, "Search for Power:") %>
+
+    <%= radio_button_tag(:power, "super stength") %>
+    <%= label_tag(:power_name, "Super Strength") %>
+    <%= radio_button_tag(:power, "flight") %>
+    <%= label_tag(:power_name, "Flight") %>
+    <%= radio_button_tag(:power, "super human senses") %>
+    <%= label_tag(:power_name, "Super Human Senses") %>
+    <%= radio_button_tag(:power, "elasticity") %>
+    <%= label_tag(:power_name, "Elasticity") %>
+    <%= submit_tag("Search") %>
   <% end %>
 </ul>
