@@ -1,4 +1,5 @@
 class HeroinesController < ApplicationController
+  
   def index
     if params[:term]
       @power_search = Power.find_by(name: params[:term]).id
