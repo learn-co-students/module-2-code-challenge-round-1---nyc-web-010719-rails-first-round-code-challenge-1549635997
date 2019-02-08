@@ -1,6 +1,11 @@
 class HeroinesController < ApplicationController
   def index
     @heroines = Heroine.all
+
+  end
+
+
+  def search
     @powers = Power.search(params[:search])
   end
 
