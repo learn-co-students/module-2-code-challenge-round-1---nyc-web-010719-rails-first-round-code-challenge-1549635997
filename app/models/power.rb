@@ -3,9 +3,9 @@ class Power < ApplicationRecord
 
   def self.search(search)
   if search
-    find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+    self.where('name LIKE ?', "%#{search}%")
   else
-    ""
+    self.all
   end
 end
 end

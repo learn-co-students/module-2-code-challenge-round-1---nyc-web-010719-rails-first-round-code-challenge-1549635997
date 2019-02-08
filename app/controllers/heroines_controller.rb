@@ -22,10 +22,7 @@ class HeroinesController < ApplicationController
     end
   end
 
-  def search
-    q = params[:q]
-    @heroins = Heroine.find(:all, :conditions => ["name LIKE %?%",q])
-  end
+
 
   private
 
