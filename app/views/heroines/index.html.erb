@@ -1,5 +1,12 @@
 <h2>All Heroines</h2>
 
+<p> Search For A POWER<br>
+  <%= form_tag(heroines_path, method: :get) do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search"%>
+    <% end %>
+</p>
+
 <ul>
   <% @heroines.each do |heroine| %>
     <li>
@@ -8,11 +15,3 @@
     <br>
   <% end %>
 </ul>
-
-<%= form_tag search_path, :method => 'post' do %>
-  <p> Search For A POWER<br>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-
-  </p>
-<% end %>
